@@ -1,0 +1,74 @@
+/* ==========================================
+   SALIK.AI - CINEMATIC CUSTOM STYLES
+   Note: Most styling is handled by Tailwind.
+================================================ */
+
+/* Custom Smooth Fade-In Animation for UI Elements */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Custom Slide-In Animation for the Right Panel Drawer */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Force hardware acceleration for smooth video switching without flickers */
+video {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: opacity;
+}
+
+/* Custom Scrollbar 
+  - Hidden for the chat log to make it look clean (scrollbar-hide handles this via Tailwind).
+  - Minimalistic for the main page.
+*/
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020202;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #38bdf8; /* Sky-400 color */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0284c7; 
+}
+
+/* Utility to completely hide scrollbar but allow scrolling (used in chat log and modal) */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
